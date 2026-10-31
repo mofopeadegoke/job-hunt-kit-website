@@ -1,6 +1,6 @@
-export const REPO = 'https://github.com/mofopeadegoke/job-hunt-kit';
+export const REPO = 'https://github.com/mofopeadegoke/uncooked';
 export const AUTHOR_URL = 'https://github.com/mofopeadegoke';
-export const INSTALL = '/plugin install job-hunt-kit --marketplace mofopeadegoke/job-hunt-kit';
+export const INSTALL = '/plugin install uncooked --marketplace mofopeadegoke/uncooked';
 
 export const NAV = [
   { href: '/example/', label: 'See an Example' },

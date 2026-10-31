@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import PageHead from '../components/PageHead.astro';
 import Install from '../components/Install.astro';
+import { REPO } from '../data/site.js';
 ---
 <Base title="Get Started" description="Install Uncooked in Claude Code, see what it needs, and tailor your first resume.">
   <PageHead title="Get started" intro="Install the plugin, make a profile folder, and share a job posting." />
@@ -12,8 +13,8 @@ import Install from '../components/Install.astro';
       <p>In Claude Code (v2.1.275 or later):</p>
       <Install />
       <p>Or from your shell:</p>
-      <Install text={'claude plugin marketplace add mofopeadegoke/job-hunt-kit\nclaude plugin install job-hunt-kit@job-hunt-kit'} />
-      <p>Update later with <code>claude plugin update job-hunt-kit@job-hunt-kit</code>.</p>
+      <Install text={'claude plugin marketplace add mofopeadegoke/uncooked\nclaude plugin install uncooked@uncooked'} />
+      <p>Update later with <code>claude plugin update uncooked@uncooked</code>.</p>
     </div>
   </div></section>
 
@@ -65,6 +66,7 @@ Linux:   the poppler-utils package</pre>
         <li><strong>Get the PDF:</strong> in <a href="https://www.overleaf.com">Overleaf</a>, New Project, Blank Project, replace all of <code>main.tex</code> with the tailored <code>resume.tex</code>, click Recompile, then Download PDF.</li>
         <li><strong>After you apply</strong>, say “I applied, log it”. Tell Claude when you hear back. Ask who to follow up with.</li>
       </ol>
+      <p>Want to try it before using your own resume? <a href={`${REPO}/blob/main/plugins/uncooked/README.md#try-it`} target="_blank" rel="noopener">Sample prompts and files</a> use the fictional Jane Doe.</p>
     </div>
   </div></section>
 

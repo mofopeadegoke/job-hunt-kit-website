@@ -4,7 +4,7 @@ The job market's cooked. You don't have to be.
 
 This is the website for Uncooked, a free and open source Claude Code plugin that fixes how your resume reads to applicant tracking systems (ATS) and tailors it to each job, using only what's true.
 
-The plugin itself lives at [mofopeadegoke/job-hunt-kit](https://github.com/mofopeadegoke/job-hunt-kit). It's being renamed from Job Hunt Kit, so the install command and GitHub links on the site still use the old name for now.
+The plugin itself lives at [mofopeadegoke/uncooked](https://github.com/mofopeadegoke/uncooked).
 
 ## Run it locally
 

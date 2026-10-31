@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Astro, deployed on Vercel. Static output. Starts on the free Vercel address (`job-hunt-kit.vercel.app` if available); no custom domain yet. No analytics at launch.
+Astro, deployed on Vercel. Static output. Starts on the free Vercel address (`getuncooked.vercel.app` if available; `uncooked.vercel.app` is taken); no custom domain yet. No analytics at launch.
 
 ## Users
 
@@ -32,7 +32,7 @@ The plugin refuses to invent. It rewords, reorders, cuts and moves, but adds not
 
 Used inside Claude Code from a profile folder holding the resume and `facts.md`. Each job produces `applications/<date>-<company>-<role>/` with a tailored `resume.tex` and `report.html`. The PDF is made in Overleaf. The `track` skill keeps `applications.csv`.
 
-Install command: `/plugin install job-hunt-kit --marketplace mofopeadegoke/job-hunt-kit`
+Install command: `/plugin install uncooked --marketplace mofopeadegoke/uncooked`
 
 ## Capabilities and Constraints
 
