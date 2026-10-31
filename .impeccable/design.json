@@ -1,0 +1,405 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-31T16:13:44.345Z",
+  "title": "Design System: Uncooked",
+  "extensions": {
+    "colorMeta": {
+      "green": {
+        "role": "primary",
+        "displayName": "Confirmed Green",
+        "canonical": "#1c6b4f",
+        "tonalRamp": [
+          "#001007",
+          "#002e1e",
+          "#004f37",
+          "#247154",
+          "#499375",
+          "#6db797",
+          "#91dcbb",
+          "#c0ffe2"
+        ]
+      },
+      "green-wash": {
+        "role": "primary",
+        "displayName": "Status Tint",
+        "canonical": "#e3f1eb",
+        "tonalRamp": [
+          "#050d0a",
+          "#1d2824",
+          "#3a4540",
+          "#58645f",
+          "#798680",
+          "#9ba9a3",
+          "#bfcdc7",
+          "#e4f2ec"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ledger Ink",
+        "canonical": "#101316",
+        "tonalRamp": [
+          "#090b0e",
+          "#222529",
+          "#3f4246",
+          "#5e6265",
+          "#7f8387",
+          "#a1a5aa",
+          "#c5cace",
+          "#ebeff4"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "canonical": "#565c63",
+        "tonalRamp": [
+          "#070c11",
+          "#20262c",
+          "#3d4349",
+          "#5c6269",
+          "#7d838a",
+          "#9fa6ae",
+          "#c3cad2",
+          "#e8eff8"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Grid Line",
+        "canonical": "#e7e9eb",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#242527",
+          "#414244",
+          "#606163",
+          "#818284",
+          "#a3a5a7",
+          "#c7c9cb",
+          "#edeff1"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ]
+      },
+      "wash": {
+        "role": "neutral",
+        "displayName": "Wash",
+        "canonical": "#f6f7f7",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242525",
+          "#414242",
+          "#606161",
+          "#818282",
+          "#a4a5a5",
+          "#c8c9c9",
+          "#eeefef"
+        ]
+      },
+      "line-on-ink": {
+        "role": "neutral",
+        "displayName": "Grid Line on Ink",
+        "canonical": "#ffffff1a",
+        "tonalRamp": [
+          "#0b0b0b1a",
+          "#2525251a",
+          "#4242421a",
+          "#6161611a",
+          "#8282821a",
+          "#a5a5a51a",
+          "#c9c9c91a",
+          "#eeeeee1a"
+        ]
+      },
+      "well-on-ink": {
+        "role": "neutral",
+        "displayName": "Command Well on Ink",
+        "canonical": "#ffffff14",
+        "tonalRamp": [
+          "#0b0b0b14",
+          "#25252514",
+          "#42424214",
+          "#61616114",
+          "#82828214",
+          "#a5a5a514",
+          "#c9c9c914",
+          "#eeeeee14"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display-hero": {
+        "displayName": "Display Hero",
+        "purpose": "The home page h1, real text and the largest thing on the site."
+      },
+      "display": {
+        "displayName": "Display",
+        "purpose": "The closing band prompt only."
+      },
+      "headline-page": {
+        "displayName": "Headline Page",
+        "purpose": "Inner page titles."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Band headings."
+      },
+      "headline-section": {
+        "displayName": "Headline Section",
+        "purpose": "Section headings on inner reading pages."
+      },
+      "title-list": {
+        "displayName": "Title List",
+        "purpose": "Entries in ruled lists."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Standard third-level headings."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "The paragraph under a heading."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text."
+      },
+      "body-sm": {
+        "displayName": "Body Small",
+        "purpose": "Nav, tables, notes, footer, status detail."
+      },
+      "code": {
+        "displayName": "Code",
+        "purpose": "Install commands and code blocks."
+      }
+    },
+    "shadows": [
+      {
+        "name": "docked-sheet",
+        "value": "0 -10px 24px #10131614",
+        "purpose": "The resume sheet when docked over the page at 960px and below."
+      },
+      {
+        "name": "control-outline",
+        "value": "inset 0 0 0 1px var(--ink)",
+        "purpose": "The Copy button outline."
+      },
+      {
+        "name": "highlight-bleed",
+        "value": "0 0 0 2px var(--green-wash)",
+        "purpose": "Extends the tint around a highlighted resume line."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The one easing curve for all state changes."
+      },
+      {
+        "name": "state",
+        "value": "200ms",
+        "purpose": "Button and row color changes."
+      },
+      {
+        "name": "highlight",
+        "value": "250ms",
+        "purpose": "Resume line highlight."
+      },
+      {
+        "name": "indent",
+        "value": "300ms",
+        "purpose": "Issue link one-cell indent on hover."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "grid-compact",
+        "value": "1100px"
+      },
+      {
+        "name": "demo-stack",
+        "value": "960px"
+      },
+      {
+        "name": "inner-stack",
+        "value": "860px"
+      },
+      {
+        "name": "rules-stack",
+        "value": "760px"
+      },
+      {
+        "name": "grid-coarse",
+        "value": "720px"
+      },
+      {
+        "name": "small",
+        "value": "640px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Install Command",
+      "kind": "custom",
+      "refersTo": "install-command",
+      "description": "The primary action: the command in an ink block with Copy attached.",
+      "html": "<div class=\"ds-install\"><code>/plugin install job-hunt-kit --marketplace mofopeadegoke/job-hunt-kit</code><button type=\"button\">Copy</button></div>",
+      "css": ".ds-install{display:flex;align-items:stretch;background:var(--ink);color:var(--paper);max-width:32rem}.ds-install code{flex:1;min-width:0;padding:.8rem .9rem;font:500 .8125rem/1.45 var(--mono);overflow-wrap:anywhere}.ds-install button{flex:none;min-width:5.25rem;border:0;border-radius:0;cursor:pointer;background:var(--paper);color:var(--ink);font:600 .9375rem var(--sans);padding:0 .9rem;box-shadow:inset 0 0 0 1px var(--ink);transition:background .2s var(--ease),color .2s var(--ease)}.ds-install button:hover{background:var(--green);color:var(--paper)}.ds-install button:active{background:var(--ink);color:var(--paper)}.ds-install button:focus-visible{outline:2px solid var(--green);outline-offset:2px}"
+    },
+    {
+      "name": "Plate on Grid",
+      "kind": "card",
+      "refersTo": "plate",
+      "description": "Paper with a 1px ink rule, laid over the grid to carry reading text.",
+      "html": "<div class=\"ds-field\"><div class=\"ds-plate\"><h2>What it did for Jane Doe.</h2><p>Real output on a fictional resume and job.</p></div></div>",
+      "css": ".ds-field{background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:44px 44px;padding:44px}.ds-plate{background:var(--paper);border:1px solid var(--ink);padding:55px;color:var(--ink)}.ds-plate h2{margin:0;font:600 2rem/1.05 var(--sans);letter-spacing:-.035em}.ds-plate p{margin:1.25rem 0 0;color:var(--ink-2);font:400 1.125rem/1.45 var(--sans)}"
+    },
+    {
+      "name": "Top Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Sticky paper bar with a 1px ink base.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-brand\" href=\"#\">Uncooked</a><ul><li><a href=\"#\">Get Started</a></li><li><a href=\"#\" aria-current=\"page\">Honesty Rules</a></li><li><a href=\"#\">Research &amp; Evals</a></li></ul><a class=\"ds-star\" href=\"#\">Star on GitHub</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:1.75rem;min-height:4rem;background:var(--paper);border-bottom:1px solid var(--ink);padding-inline:1rem;font:400 .9375rem var(--sans)}.ds-nav a{text-decoration:none;color:var(--ink)}.ds-nav ul{display:flex;gap:1.5rem;margin:0 0 0 auto;padding:0;list-style:none}.ds-nav ul a{color:var(--ink-2)}.ds-nav ul a:hover,.ds-nav ul a[aria-current=page]{color:var(--ink);text-decoration:underline}.ds-brand{font-weight:700;font-size:1.0625rem;letter-spacing:-.01em}.ds-star{font-weight:600}.ds-star:hover,.ds-brand:hover{color:var(--green)}.ds-nav a:focus-visible{outline:2px solid var(--green);outline-offset:2px}"
+    },
+    {
+      "name": "Text Link",
+      "kind": "custom",
+      "description": "Inherits text color, 1px underline, green on hover.",
+      "html": "<a class=\"ds-link\" href=\"#\">Read all the rules</a>",
+      "css": ".ds-link{color:var(--ink);font:600 1.0625rem var(--sans);text-underline-offset:.2em;text-decoration-thickness:1px}.ds-link:hover{color:var(--green)}.ds-link:focus-visible{outline:2px solid var(--green);outline-offset:2px}"
+    },
+    {
+      "name": "Requirement Row",
+      "kind": "chip",
+      "refersTo": "requirement-row",
+      "description": "Selectable list row with a status mark; the tint marks selection, stripes replace it when Missing.",
+      "html": "<ul class=\"ds-req\"><li><button type=\"button\" aria-pressed=\"true\"><span class=\"ds-mark ds-full\"></span><span class=\"ds-n\">End-to-end tests</span><span class=\"ds-s\"><b>On resume.</b> No change.</span></button></li><li><button type=\"button\" aria-pressed=\"false\"><span class=\"ds-mark ds-green\"></span><span class=\"ds-n\">Code review and pairing</span><span class=\"ds-s\"><b>Added from facts.</b> New bullet. <code>BL-6</code></span></button></li><li><button type=\"button\" aria-pressed=\"false\"><span class=\"ds-mark ds-half\"></span><span class=\"ds-n\">B2B SaaS</span><span class=\"ds-s\"><b>Partial match.</b> Left as described.</span></button></li><li><button type=\"button\" aria-pressed=\"true\" class=\"ds-none\"><span class=\"ds-mark ds-stripe\"></span><span class=\"ds-n\">GraphQL</span><span class=\"ds-s\"><b>Missing.</b> Not added.</span></button></li></ul>",
+      "css": ".ds-req{margin:0;padding:0;list-style:none;border:1px solid var(--ink);background:var(--paper);color:var(--ink);font:400 1.0625rem/1.6 var(--sans)}.ds-req li{border-bottom:1px solid var(--line)}.ds-req li:last-child{border-bottom:0}.ds-req button{display:grid;grid-template-columns:1rem 1fr;gap:.15rem .75rem;width:100%;padding:.7rem .5rem;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer;transition:background .2s var(--ease)}.ds-req button:hover{background:var(--wash)}.ds-req button[aria-pressed=true]{background:var(--green-wash)}.ds-req button.ds-none[aria-pressed=true]{background:repeating-linear-gradient(45deg,var(--line) 0 2px,var(--paper) 2px 9px)}.ds-req button:focus-visible{outline:2px solid var(--green);outline-offset:2px}.ds-mark{width:.875rem;height:.875rem;margin-top:.3rem;border:1px solid var(--ink)}.ds-full{background:var(--ink)}.ds-green{background:var(--green);border-color:var(--green)}.ds-half{background:linear-gradient(90deg,var(--ink) 50%,transparent 50%)}.ds-stripe{background:repeating-linear-gradient(45deg,var(--ink) 0 1px,transparent 1px 4px)}.ds-n{font-weight:600;line-height:1.35}.ds-s{grid-column:2;font-size:.9375rem;line-height:1.4;color:var(--ink-2)}.ds-s b{color:var(--ink);font-weight:600}.ds-s code{font:400 .8125rem var(--mono)}"
+    },
+    {
+      "name": "Before-and-After Evidence Table",
+      "kind": "card",
+      "refersTo": "before-after-plate",
+      "description": "The signature: a bordered plate with a measured result and its source.",
+      "html": "<aside class=\"ds-seen\"><h2>Same resume. Same words.</h2><p>What one resume parser read, before and after spacing fixes.</p><table><thead><tr><th></th><th>Before</th><th>After</th></tr></thead><tbody><tr><th scope=\"row\">Email</th><td class=\"ds-bad\">Lost</td><td class=\"ds-good\">Found</td></tr><tr><th scope=\"row\">Jobs</th><td class=\"ds-bad\">1 of 5</td><td class=\"ds-good\">5 of 5</td></tr></tbody></table><small>One resume, tested in OpenResume.</small></aside>",
+      "css": ".ds-seen{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--ink);padding:44px;color:var(--ink);font-family:var(--sans)}.ds-seen h2{margin:0;font-weight:600;font-size:clamp(1.625rem,2.6vw,2.25rem);line-height:1.1;letter-spacing:-.03em}.ds-seen>p{margin:.5rem 0 0;color:var(--ink-2)}.ds-seen table{width:100%;margin-top:1.25rem;border-collapse:collapse;font-size:1.0625rem;line-height:1.4}.ds-seen th,.ds-seen td{text-align:left;padding:.6rem .75rem .6rem 0;border-bottom:1px solid var(--line)}.ds-seen th{font-weight:600}.ds-seen thead th{font-size:.9375rem;border-bottom-color:var(--ink)}.ds-bad{color:var(--ink-2)}.ds-good{color:var(--green);font-weight:600}.ds-seen small{margin-top:1rem;font-size:.875rem;line-height:1.4;color:var(--ink-2)}"
+    },
+    {
+      "name": "Change Panel",
+      "kind": "card",
+      "refersTo": "change-panel",
+      "description": "Two joined panes; the tint marks the improved side.",
+      "html": "<div class=\"ds-change\"><div><b>Before</b><p>Freelance Web Developer, tucked away under Projects</p></div><div><b>After</b><p>Freelance Frontend Engineer, listed first under Experience</p></div></div>",
+      "css": ".ds-change{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--ink);background:var(--paper);color:var(--ink);font-family:var(--sans)}.ds-change>div{padding:1.5rem;min-width:0}.ds-change>div+div{border-left:1px solid var(--ink);background:var(--green-wash)}.ds-change b{display:block;font-size:.9375rem;font-weight:600;margin-bottom:.4rem}.ds-change p{margin:0;font-size:clamp(1.125rem,1.8vw,1.5rem);line-height:1.25;letter-spacing:-.015em}"
+    },
+    {
+      "name": "Closing Band",
+      "kind": "custom",
+      "refersTo": "close-band",
+      "description": "The deliberate inversion: ink ground, faint grid, final install prompt.",
+      "html": "<section class=\"ds-close\"><h2>Give your resume a fair read.</h2><a href=\"#\">Star on GitHub</a></section>",
+      "css": ".ds-close{--line:#ffffff1a;background-color:var(--ink);color:var(--paper);background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:44px 44px;padding:132px 44px;font-family:var(--sans)}.ds-close h2{margin:0 0 2rem;font:600 clamp(2.5rem,7vw,5.5rem)/1.05 var(--sans);letter-spacing:-.035em}.ds-close a{color:var(--paper);font-weight:600;text-underline-offset:.2em;text-decoration-thickness:1px}.ds-close a:hover{text-decoration-thickness:2px}.ds-close a:focus-visible{outline:2px solid var(--paper);outline-offset:2px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Ruled Ledger",
+    "overview": "The system works like a ledger someone could audit. A faint square grid is the ground, and on it sit paper plates holding plain evidence: large real headlines, before-and-after results, a resume shown line by line. Weight comes from type and 1px ink rules, never from ornament. The grid sets the unit for columns and plate sizes, so the page reads as measured rather than decorated. The visual language makes the same promise as the product: what is shown can be checked.\n\nThe mood is disciplined, plain and technical, with one strong idea doing the visual work. White ground, near-black ink, and a single green held back for moments of status. Density is relaxed in the reading bands and tighter where real output is shown. Type is Geist throughout, set tight and heavy at large sizes, with Geist Mono reserved for things a person could copy or check.\n\nMotion is scarce. The signature interaction links a requirement to the resume lines that answer it, and state changes use one long-tailed ease and finish quickly. Nothing animates on load. With reduced motion requested, in-page scrolling jumps instead of gliding.",
+    "keyCharacteristics": [
+      "A visible square grid sets the unit for columns, plate sizes and band padding.",
+      "Large real type carries impact, on paper, beside bordered evidence.",
+      "Status marks are square: filled, green, half-filled or striped.",
+      "Near-black, white and one green, with no secondary accent.",
+      "Square corners and 1px ink rules in place of cards and shadows.",
+      "One deliberate inversion: the closing band turns to an ink ground."
+    ],
+    "rules": [
+      {
+        "name": "The One Green Rule",
+        "body": "Green means status or interaction. It is never a section ground, a heading color, or decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tint Is Status Rule",
+        "body": "The green tint (#e3f1eb) marks the requirement in focus, the resume lines that answer it, and the improved side of a before-and-after. When the selected requirement is Missing, the row drops the tint for stripes, because nothing was confirmed.",
+        "section": "colors"
+      },
+      {
+        "name": "The Deliberate Inversion Rule",
+        "body": "The closing band's ink ground is a deliberate inversion of the world, and it happens once, at the end of a page, on the final install prompt. The grid continues on it at low opacity, links turn paper, and the focus ring turns paper. Everything else stays on white.",
+        "section": "colors"
+      },
+      {
+        "name": "The Mono Is Evidence Rule",
+        "body": "Geist Mono is for strings a reader could copy or look up: commands, file names, fact IDs. It is never a stylistic label voice.",
+        "section": "typography"
+      },
+      {
+        "name": "The Real Type Rule",
+        "body": "The largest thing on a page is a real heading in Geist. Impact comes from size and tight setting, not from drawn or image lettering.",
+        "section": "typography"
+      },
+      {
+        "name": "The Cell Snap Rule",
+        "body": "Sizes on the grid are whole cells. Plates, the requirement box and source notes round their height up to a whole number of cells at runtime, so their edges land on grid lines.",
+        "section": "layout"
+      },
+      {
+        "name": "The Plate Rule",
+        "body": "Text on the light grid sits on a paper plate, bordered or not, so grid lines never run behind reading copy. The inverted closing band is the exception: its grid is faint enough at 10% white to carry text directly.",
+        "section": "layout"
+      },
+      {
+        "name": "The Flat Sheet Rule",
+        "body": "A blurred shadow appears only when a surface overlaps scrolling content. Plates at rest have a rule, never a shadow.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Mark Meaning Rule",
+        "body": "Shape carries meaning. A filled mark is on the resume, half-filled is a partial match, green is added from facts, and striped is Missing. Stripes appear only where something is absent.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Square Rule",
+        "body": "Radius is 0px on everything, with no exception for buttons or inputs.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do size and place things on grid-field surfaces in whole cells, and let the cell (44px at most) set the rhythm.",
+      "Do put reading text on a paper plate whenever it sits on the light grid.",
+      "Do keep status marks paired with the status word in text.",
+      "Do make the largest thing on a page a real heading.",
+      "Do show a measured before and after, with its source named, rather than describing a benefit.",
+      "Do hold the Copy command close to hand, using the ink install block as the strongest control on a surface.",
+      "Do use 1px Ledger Ink for structure and Grid Line for dividers within a list.",
+      "Do respect reduced motion: scrolling jumps instead of gliding."
+    ],
+    "donts": [
+      "Don't center a headline over a row of boxed cards. Headings stay left-aligned on the grid.",
+      "Don't add a second accent or use green as decoration or a section ground.",
+      "Don't use stripes for anything other than absence.",
+      "Don't use the green tint for anything but status emphasis.",
+      "Don't add border radius or give plates a shadow.",
+      "Don't use soft or multi-stop gradients. Hard-stop gradients exist only to draw the grid, the stripes, and the half mark.",
+      "Don't use small uppercase labels or kickers above headings. Uppercase belongs to the resume replica.",
+      "Don't invert a band to ink anywhere other than the closing install prompt.",
+      "Don't set prose in Geist Mono."
+    ]
+  }
+}

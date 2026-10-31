@@ -1,0 +1,83 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import Install from '../components/Install.astro';
+---
+<Base title="Get Started" description="Install Uncooked in Claude Code, see what it needs, and tailor your first resume.">
+  <PageHead title="Get started" intro="Install the plugin, make a profile folder, and share a job posting." />
+
+  <section class="sec"><div class="wrap inner">
+    <h2>Install</h2>
+    <div class="prose">
+      <p>In Claude Code (v2.1.275 or later):</p>
+      <Install />
+      <p>Or from your shell:</p>
+      <Install text={'claude plugin marketplace add mofopeadegoke/job-hunt-kit\nclaude plugin install job-hunt-kit@job-hunt-kit'} />
+      <p>Update later with <code>claude plugin update job-hunt-kit@job-hunt-kit</code>.</p>
+    </div>
+  </div></section>
+
+  <section class="sec" id="cost"><div class="wrap inner">
+    <h2>What it costs</h2>
+    <div class="prose">
+      <p><strong>Uncooked is free and open source.</strong> There’s no signup, no fee and no paid tier, and it’s MIT licensed.</p>
+      <p>It runs inside Claude Code, which isn’t on Claude’s free plan. You’ll need a <a href="https://claude.com/pricing">paid Claude plan</a> or an Anthropic Console account, billed at API rates. That cost goes to Anthropic, not to this plugin.</p>
+    </div>
+  </div></section>
+
+  <section class="sec" id="new"><div class="wrap inner">
+    <h2>New to Claude Code?</h2>
+    <div class="prose">
+      <p>Claude Code is Anthropic’s AI assistant that works with the files on your computer. You give it instructions in plain English. A plugin adds skills to it, and this plugin adds resume tailoring and an application log.</p>
+      <ol>
+        <li>Install Claude Code using <a href="https://code.claude.com/docs/en/overview">Anthropic’s guide</a>, and sign in with a paid Claude plan or Console account.</li>
+        <li>Install <a href="https://www.python.org/downloads/">Python 3</a>, which the plugin’s scripts need.</li>
+        <li>Open Claude Code in a folder of your choice and paste the install command above.</li>
+        <li>Follow the quick start below. You never need to write code or LaTeX.</li>
+      </ol>
+    </div>
+  </div></section>
+
+  <section class="sec"><div class="wrap inner">
+    <h2>What it needs</h2>
+    <div class="prose">
+      <p><strong>Needs:</strong> Python 3, for the scripts and the reminder.</p>
+      <p><strong>Recommended:</strong> <code>pdftotext</code> and <code>pdfinfo</code> from <a href="https://poppler.freedesktop.org/">Poppler</a>, to read a PDF resume (including links hidden behind words like “LinkedIn”) and to check what an ATS sees.</p>
+      <pre>Windows: winget install oschwartz10612.Poppler
+macOS:   brew install poppler
+Linux:   the poppler-utils package</pre>
+      <p><strong>Optional:</strong> a LaTeX engine (<code>latexmk</code>, <code>pdflatex</code> or <code>tectonic</code>) to compile and check the PDF on your machine. Without one, compile in Overleaf; the plugin checks the <code>.tex</code> source and says so.</p>
+      <p><strong>Optional:</strong> <a href="https://www.libreoffice.org/">LibreOffice</a>, only for old <code>.doc</code> files. Without it, save the file as <code>.docx</code> or PDF and use that. <code>.docx</code> files need nothing extra.</p>
+    </div>
+  </div></section>
+
+  <section class="sec"><div class="wrap inner">
+    <h2>Quick start</h2>
+    <div class="prose">
+      <ol>
+        <li><strong>Make a profile folder</strong> and put your resume in it: <code>resume.tex</code>, or a PDF or Word file.</li>
+        <li><strong>Open Claude Code in that folder</strong> and share a job posting: “Tailor my resume for this job”.
+          <ul>
+            <li>The first time, with a PDF or Word resume, the plugin copies it into <code>resume.tex</code> and drafts <code>facts.md</code>: everything true about you that a resume may use, plus a Never claim list. Check both and answer its questions. This happens once.</li>
+            <li>Every job after that, you get a folder <code>applications/&lt;date&gt;-&lt;company&gt;-&lt;role&gt;/</code> with the tailored <code>resume.tex</code> and <code>report.html</code>. Your master resume is never edited.</li>
+          </ul>
+        </li>
+        <li><strong>Get the PDF:</strong> in <a href="https://www.overleaf.com">Overleaf</a>, New Project, Blank Project, replace all of <code>main.tex</code> with the tailored <code>resume.tex</code>, click Recompile, then Download PDF.</li>
+        <li><strong>After you apply</strong>, say “I applied, log it”. Tell Claude when you hear back. Ask who to follow up with.</li>
+      </ol>
+    </div>
+  </div></section>
+
+  <section class="sec"><div class="wrap inner">
+    <h2>Where it works</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th></th><th>Claude Code</th><th>Cowork</th><th>claude.ai chat</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><code>ats-optimize</code>, <code>track</code></th><td>Tested</td><td>Expected, not yet tested</td><td>Expected, not yet tested (no lasting folder for the log)</td></tr>
+          <tr><th scope="row">Session-start reminder</th><td>Tested on Windows</td><td>Expected, not yet tested</td><td>Not supported by chat</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div></section>
+</Base>
