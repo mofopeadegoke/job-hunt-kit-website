@@ -1,0 +1,92 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import Install from '../components/Install.astro';
+import { VERDICT, KNOCKOUTS, TITLE_NOTE, REQUIREMENTS, STATUS_MARK, RESUME } from '../data/site.js';
+
+const first = REQUIREMENTS.findIndex((r) => r.name.startsWith('End-to-end'));
+const initial = REQUIREMENTS[first].lines;
+const line = (id) => (initial.includes(id) ? 'on' : undefined);
+---
+<Base title="See an Example" description="What Uncooked did for a fictional candidate and job: every requirement, every change, and the fact behind it.">
+  <PageHead title="See an example" intro="Everything the plugin decided for one fictional candidate and one fictional job." />
+  <section class="band grid-field" id="demo">
+    <div class="wrap">
+      <div class="plate">
+        <h2>What it did for Jane Doe.</h2>
+        <p class="lead">The plugin’s ats-optimize skill, run through Claude on a fictional resume and job.</p>
+        <p class="verdict"><b>The plugin’s verdict:</b> {VERDICT}</p>
+        <div class="scroll ko"><table>
+          <thead><tr><th>Hard requirement</th><th>Profile says</th><th>Status</th></tr></thead>
+          <tbody>{KNOCKOUTS.map(([a, b, c]) => <tr><td>{a}</td><td>{b}</td><td>{c}</td></tr>)}</tbody>
+        </table></div>
+        <p class="title-note">{TITLE_NOTE}</p>
+      </div>
+      <div class="demo">
+        <div class="reqbox">
+        <p class="pick">Pick a requirement to see the resume lines that answer it, or that none do.</p>
+        <ul class="req" data-req>
+          {REQUIREMENTS.map((r, i) => (
+            <li>
+              <button type="button" aria-pressed={i === first ? 'true' : 'false'} data-lines={r.lines.join(' ')}>
+                <span class={`mark ${STATUS_MARK[r.status]}`} aria-hidden="true"></span>
+                <span class="n">{r.name}</span>
+                <span class="s"><b>{r.status}.</b> {r.change} {r.facts && <span class="f">{r.facts}</span>}</span>
+              </button>
+            </li>
+          ))}
+        </ul>
+        </div>
+        <article class="sheet" data-sheet aria-label="Jane Doe's tailored resume">
+          <p class="absent" data-absent>Not on this resume. No fact supports it.</p>
+          <h3>Jane Doe</h3>
+          <h4>Summary</h4>
+          <p data-line="summary" class={line('summary')}>{RESUME.summary}</p>
+          <h4>Technical Skills</h4>
+          {RESUME.skills.map((s) => <p data-line={s.id} class={line(s.id)}><b>{s.label}:</b> {s.text}</p>)}
+          <h4>Experience</h4>
+          {RESUME.jobs.map((j) => (
+            <>
+              <p class="job"><span><b>{j.org}</b>, {j.title}</span><span>{j.dates}</span></p>
+              <ul>{j.items.map(([id, text]) => <li data-line={id} class={line(id)}>{text}</li>)}</ul>
+            </>
+          ))}
+          <h4>Projects</h4>
+          <p class="job"><span><b>Shamba Prices</b>, side project</span><span>2025</span></p>
+          <ul>
+            <li>Built a chat assistant that answers crop price questions in English and Swahili, using the Claude API and a PostgreSQL database of market prices.</li>
+            <li>About 40 farmers used it during a 2-week pilot with a local cooperative.</li>
+          </ul>
+          <h4>Education</h4>
+          <p>Kilima University, B.Sc. Computer Science, graduated Dec 2021. Second Class Honours (Upper Division).</p>
+        </article>
+      </div>
+      <p class="src">Jane Doe and the Pollen Analytics job are fictional fixtures from the plugin’s repo. Codes like BL-5 are the IDs of facts in her <code>facts.md</code>. Contact lines and job locations are left out here, and the Written English requirement isn’t listed because nothing changed for it. Layout checks passed; this run wasn’t compiled to PDF, so the one-page check wasn’t run.</p>
+    </div>
+  </section>
+  <section class="sec"><div class="wrap inner">
+    <h2>Install it</h2>
+    <div class="prose"><Install /><p><a href="/get-started/">New to Claude Code? Start here</a></p></div>
+  </div></section>
+  <script>
+    const list = document.querySelector('[data-req]');
+    const sheet = document.querySelector('[data-sheet]');
+    list?.addEventListener('click', (e) => {
+      const btn = e.target.closest('button');
+      if (!btn) return;
+      list.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+      sheet.querySelectorAll('.on').forEach((n) => n.classList.remove('on'));
+      const motion = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+      const ids = btn.dataset.lines.split(' ').filter(Boolean);
+      const lines = ids.map((id) => sheet.querySelector(`[data-line="${id}"]`)).filter(Boolean);
+      lines.forEach((n) => n.classList.add('on'));
+      if (matchMedia('(max-width: 960px)').matches) btn.scrollIntoView({ block: 'start', behavior: motion });
+      if (!lines.length) {
+        sheet.querySelector('[data-absent]').classList.add('on');
+        sheet.scrollTo({ top: 0, behavior: motion });
+      } else if (sheet.scrollHeight > sheet.clientHeight) {
+        sheet.scrollTo({ top: lines[0].offsetTop - sheet.clientHeight / 2, behavior: motion });
+      }
+    });
+  </script>
+</Base>

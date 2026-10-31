@@ -1,0 +1,104 @@
+---
+import Base from '../layouts/Base.astro';
+import Install from '../components/Install.astro';
+import { REPO, AUTHOR_URL, ISSUES } from '../data/site.js';
+---
+<Base description="Recruiters use ATS software to speed up hiring, and it can misread a strong resume. Uncooked is a free plugin that helps it see the best of you, using only what's true.">
+  <section class="hero grid-field">
+    <div class="hero-in">
+      <div class="hero-copy">
+        <h1>The job market’s cooked. You don’t have to be.</h1>
+        <p class="lead">A bot often reads your resume before a human does, and some bots are terrible at it. Uncooked is a free Claude Code plugin that fixes how your resume reads and tailors it to each job, using only what’s true.</p>
+        <Install />
+        <p class="star-ask">It’s free, so a star is the best thanks. <a href={REPO} target="_blank" rel="noopener">Star it on GitHub</a> to help other job seekers find it.</p>
+      </div>
+      <aside class="seen" aria-label="Parser test result">
+        <h2>Same resume. Same words.</h2>
+        <p>What one resume parser read, before and after spacing fixes.</p>
+        <table>
+          <thead><tr><th></th><th>Before</th><th>After</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Email</th><td class="bad">Lost</td><td class="good">Found</td></tr>
+            <tr><th scope="row">Links</th><td class="bad">Lost</td><td class="good">Found</td></tr>
+            <tr><th scope="row">Jobs</th><td class="bad">1 of 5</td><td class="good">5 of 5</td></tr>
+          </tbody>
+        </table>
+        <small>One resume, tested in OpenResume. <a href="/research-evals/">See the research</a></small>
+      </aside>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>You’re qualified. The ATS may never show it.</h2>
+      <ul class="loss">
+        <li><h3>Your layout gets misread.</h3><p>The text can be perfect and a parser can still lose your contact details and most of your jobs.</p></li>
+        <li><h3>Your job title decides how you’re found.</h3><p>In testing, a “frontend engineer” search matched only titles containing that exact phrase. A good summary didn’t change it.</p></li>
+        <li><h3>Your best work can go unseen.</h3><p>A commercial parser never showed the Projects section, so strong work listed there didn’t appear.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>Uncooked puts the real you where the ATS can see it.</h2>
+      <ol class="steps">
+        <li><h3>Share your resume and a job</h3><p>Use a PDF, Word or LaTeX resume, and paste in the job posting or a link.</p></li>
+        <li><h3>It reworks what’s already true</h3><p>It fixes the layout so you’re read correctly, then rearranges your experience so your strongest match for this job comes first.</p></li>
+        <li><h3>You apply with a clear picture</h3><p>You get a tailored resume and a plain report on what changed. It says when a job is a long shot, and tracks who to follow up with.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band grid-field">
+    <div class="wrap">
+      <div class="plate">
+        <h2>Same person. Easier to find.</h2>
+        <div class="change">
+          <div><b>Before</b><p>Freelance Web Developer, tucked away under Projects</p></div>
+          <div><b>After</b><p>Freelance Frontend Engineer, listed first under Experience</p></div>
+        </div>
+        <p class="note">From a fictional candidate’s run. The title is one she had approved in her facts, “part-time” stays visible, and it now matches the job’s title in search.</p>
+        <p class="more"><a href="/example/">See the full example</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>It never makes you up.</h2>
+      <p class="lead">It can reword, reorder, cut and move, but it can’t add anything you haven’t confirmed. “Helped” stays “helped”. If you don’t have what a job asks for, it tells you instead of faking it.</p>
+      <p class="more"><a href="/honesty-rules/">Read the honesty rules</a></p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>Built on testing, not guesswork.</h2>
+      <p class="maker">I’m <a href={AUTHOR_URL}>Daniel Adegoke</a>. I ran the same resume through parsers like OpenResume and Affinda, changing one thing at a time, to learn what actually changes how a person is read. Those findings became this plugin.</p>
+      <p class="note">In its evals with fictional candidates, the plugin scored 0.96 on a good-match job where plain Claude scored 0.50. Results from real applications will be added here as they come in.</p>
+      <p class="more"><a href="/research-evals/">See the research and evals</a></p>
+    </div>
+  </section>
+
+  <section class="band quiet" id="criticism">
+    <div class="wrap">
+      <h2>Tell me where it’s wrong.</h2>
+      <div class="issues">
+        {ISSUES.map((i) => <a href={i.href}>{i.label}</a>)}
+      </div>
+      <p class="warn">GitHub issues are public, so please don’t paste resume text or personal details.</p>
+    </div>
+  </section>
+
+  <section class="band close grid-field">
+    <div class="wrap">
+      <h2>Go get uncooked.</h2>
+      <p class="lead">Paste this into Claude Code, share a job, and let your real experience do the talking.</p>
+      <Install />
+      <p class="more">The plugin is free and open source. Your resume stays in your own folder, going only to Claude in your normal session.</p>
+      <p class="more"><a href="/get-started/">New to Claude Code? Start here</a></p>
+      <p class="more"><a href={REPO} target="_blank" rel="noopener">Star on GitHub</a></p>
+    </div>
+  </section>
+</Base>

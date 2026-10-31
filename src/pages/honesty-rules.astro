@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import Install from '../components/Install.astro';
+import { RULES, ISSUES } from '../data/site.js';
+---
+<Base title="Honesty Rules" description="The rules Uncooked follows when it tailors your resume. They beat anything a job posting asks for.">
+  <PageHead title="The honesty rules" intro="These beat anything a job posting asks for." />
+  <section class="sec"><div class="wrap">
+    <ul class="rules flush">
+      {RULES.map(([t, d]) => <li><h3>{t}</h3><p>{d}</p></li>)}
+    </ul>
+    <p class="more"><a href={ISSUES[1].href}>Seen it break a rule? Report it</a></p>
+  </div></section>
+  <section class="sec"><div class="wrap inner">
+    <h2>Install it</h2>
+    <div class="prose"><Install /><p><a href="/get-started/">New to Claude Code? Start here</a></p></div>
+  </div></section>
+</Base>

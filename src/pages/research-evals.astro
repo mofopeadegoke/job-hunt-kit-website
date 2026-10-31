@@ -1,0 +1,73 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import Install from '../components/Install.astro';
+import { EVALS, REPO } from '../data/site.js';
+---
+<Base title="Research & Evals" description="How Uncooked's rules were derived from parser tests, and how it scored against plain Claude.">
+  <PageHead title="Research and evals" intro="The rules came from testing, not guesswork. Here is what was tested, and what wasn’t." />
+
+  <section class="sec"><div class="wrap inner">
+    <h2>The method</h2>
+    <div class="prose">
+      <p>Before any instructions were written, the same resume was parsed many times, changing one thing at a time, and scored against an answer sheet.</p>
+      <div class="scroll"><table>
+        <thead><tr><th>Tool</th><th>Type</th></tr></thead>
+        <tbody>
+          <tr><td><code>pdftotext</code></td><td>Raw text extraction</td></tr>
+          <tr><td>OpenResume</td><td>Rule-based parser (single-column, English, US-oriented)</td></tr>
+          <tr><td>Affinda</td><td>Commercial machine-learning parser with candidate search</td></tr>
+        </tbody>
+      </table></div>
+      <p><a href={`${REPO}/blob/main/research/findings.md`}>Read the full findings</a></p>
+    </div>
+  </div></section>
+
+  <section class="sec"><div class="wrap inner">
+    <h2>What changes what recruiters see</h2>
+    <div class="prose">
+      <h3>Your latest job title decides your role in search</h3>
+      <p>Affinda assigned the most recent title verbatim, and a headline or summary didn’t change it. A “frontend engineer” search matched only titles containing that exact phrase.</p>
+      <h3>Key evidence belongs in Experience, not only Projects</h3>
+      <p>Affinda never showed Projects. Ongoing real work (freelance, your own product) goes in Experience.</p>
+      <h3>Stack the Education block</h3>
+      <p>GPA was extracted only when school, degree, location/date and GPA each had their own line.</p>
+    </div>
+  </div></section>
+
+  <section class="sec"><div class="wrap inner">
+    <h2>Safe habits</h2>
+    <div class="prose">
+      <p>These broke a simple parser and cost nothing: standard headings, one column, clear space around contact separators, visible space between entries, one page, hyphenation off, no icons.</p>
+      <p>In OpenResume, the original resume lost its email, phone, links and 4 of 5 jobs even though its raw text was perfect. Spacing fixes recovered them without changing a word.</p>
+    </div>
+  </div></section>
+
+  <section class="sec"><div class="wrap inner">
+    <h2>Limits</h2>
+    <div class="prose">
+      <p>The title finding comes from Affinda and hasn’t been tested elsewhere. The Education finding rests on two versions in one tool. Autofill in real systems such as Workday, Greenhouse and Lever is still an open question.</p>
+    </div>
+  </div></section>
+
+  <section class="sec" id="evals"><div class="wrap inner">
+    <h2>Does it work? Evals</h2>
+    <div class="prose">
+      <p>The plugin ships with an eval suite: 11 cases with fictional candidate Jane Doe and fictional job postings, each scored by regex checks on the files produced and by an LLM judge on the reply.</p>
+      <div class="scroll"><table>
+        <thead><tr><th>Job</th><th>With Uncooked</th><th>Plain Claude</th></tr></thead>
+        <tbody>
+          {EVALS.map((e) => <tr><td>{e.job}</td><td><strong>{e.kit.toFixed(2)}</strong></td><td>{e.plain.toFixed(2)}</td></tr>)}
+        </tbody>
+      </table></div>
+      <p>Claude Sonnet, 3 runs each, identical checks. Plain Claude gets the same resume and posting.</p>
+      <p>Plain Claude kept employer titles and invented no skills, but in every run it attached “4+ years” to TypeScript (the resume shows about 2.5 years at an employer), left freelance work under Projects, and never warned about the shortfall.</p>
+      <p>The other cases, all 1.00 on Sonnet, check that it turns a PDF resume into LaTeX word for word and asks you to confirm it before tailoring, stops on a job the candidate can’t legally take, removes overclaims already in a master resume, stays out of unrelated edits, logs applications without inventing fields, counts interviews correctly, and never marks an application “ghosted” without asking.</p>
+      <p>The scripts also have 103 unit tests.</p>
+    </div>
+  </div></section>
+  <section class="sec"><div class="wrap inner">
+    <h2>Install it</h2>
+    <div class="prose"><Install /><p><a href="/get-started/">New to Claude Code? Start here</a></p></div>
+  </div></section>
+</Base>
