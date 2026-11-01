@@ -1,9 +1,10 @@
 ---
 import { INSTALL } from '../data/site.js';
 const { text = INSTALL } = Astro.props;
+const parts = text.split(/(--\S+)/);
 ---
 <div class="install" data-install>
-  <code>{text}</code>
+  <code>{parts.map((p) => (p.startsWith('--') ? <span class="flag">{p}</span> : p))}</code>
   <button type="button" data-copy={text} aria-label="Copy command">Copy</button>
   <span class="sr" aria-live="polite"></span>
 </div>
