@@ -7,6 +7,11 @@ import { VERDICT, KNOCKOUTS, TITLE_NOTE, REQUIREMENTS, STATUS_MARK, RESUME } fro
 const first = REQUIREMENTS.findIndex((r) => r.name.startsWith('End-to-end'));
 const initial = REQUIREMENTS[first].lines;
 const line = (id) => (initial.includes(id) ? 'on' : undefined);
+const lineText = {
+  summary: RESUME.summary,
+  ...Object.fromEntries(RESUME.skills.map((s) => [s.id, `${s.label}: ${s.text}`])),
+  ...Object.fromEntries(RESUME.jobs.flatMap((j) => j.items)),
+};
 ---
 <Base title="See an Example" description="What Uncooked did for a fictional candidate and job: every requirement, every change, and the fact behind it.">
   <PageHead title="See an example" intro="Everything the plugin decided for one fictional candidate and one fictional job." />
@@ -33,6 +38,11 @@ const line = (id) => (initial.includes(id) ? 'on' : undefined);
                 <span class="n">{r.name}</span>
                 <span class="s"><b>{r.status}.</b> {r.change} {r.facts && <span class="f">{r.facts}</span>}</span>
               </button>
+              <div class="answer">
+                {r.lines.length
+                  ? <><p class="from">On her resume:</p>{r.lines.map((id) => <p>{lineText[id]}</p>)}</>
+                  : <p class="none">Not on this resume. No fact supports it.</p>}
+              </div>
             </li>
           ))}
         </ul>
@@ -74,14 +84,19 @@ const line = (id) => (initial.includes(id) ? 'on' : undefined);
     list?.addEventListener('click', (e) => {
       const btn = e.target.closest('button');
       if (!btn) return;
-      list.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+      const stacked = matchMedia('(max-width: 960px)').matches;
+      const closing = stacked && btn.getAttribute('aria-pressed') === 'true';
+      list.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b === btn && !closing)));
       sheet.querySelectorAll('.on').forEach((n) => n.classList.remove('on'));
+      if (closing) return;
       const motion = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
       const ids = btn.dataset.lines.split(' ').filter(Boolean);
       const lines = ids.map((id) => sheet.querySelector(`[data-line="${id}"]`)).filter(Boolean);
       lines.forEach((n) => n.classList.add('on'));
-      if (matchMedia('(max-width: 960px)').matches) btn.scrollIntoView({ block: 'start', behavior: motion });
-      if (!lines.length) {
+      if (stacked) {
+        if (!lines.length) sheet.querySelector('[data-absent]').classList.add('on');
+        btn.scrollIntoView({ block: 'start', behavior: motion });
+      } else if (!lines.length) {
         sheet.querySelector('[data-absent]').classList.add('on');
         sheet.scrollTo({ top: 0, behavior: motion });
       } else if (sheet.scrollHeight > sheet.clientHeight) {

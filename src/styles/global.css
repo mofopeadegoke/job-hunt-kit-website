@@ -75,11 +75,21 @@ code { font-family: var(--mono); font-size: 0.92em; }
 .top ul a:hover, .top ul a[aria-current='page'] { color: var(--ink); text-decoration: underline; }
 .brand { font-weight: 700; font-size: 1.0625rem !important; letter-spacing: -0.01em; }
 .star { font-weight: 600; }
+.menu { display: none; }
 @media (max-width: 720px) {
-  .top .wrap { gap: 0.25rem 1rem; justify-content: space-between; }
-  .top ul { order: 3; width: 100%; margin: 0; gap: 1rem; }
-  .top ul a { font-size: 0.875rem; }
+  .top .wrap { gap: 1rem; min-height: 3.5rem; flex-wrap: nowrap; padding-block: 0; }
+  .top .wrap > ul { display: none; }
+  .star { margin-left: auto; }
+  .menu { display: block; }
+  .menu summary { display: flex; align-items: center; justify-content: flex-end; width: 2.75rem; height: 2.75rem; cursor: pointer; list-style: none; }
+  .menu summary::-webkit-details-marker { display: none; }
+  .menu svg { fill: none; stroke: var(--ink); stroke-width: 2; }
+  .menu .icon-close, .menu[open] .icon-open { display: none; }
+  .menu[open] .icon-close { display: block; }
+  .menu ul { position: absolute; left: 0; right: 0; top: 100%; display: block; margin: 0; padding-block: 0.25rem; background: var(--paper); border-block: 1px solid var(--ink); }
+  .menu a { display: block; padding: 0.75rem calc((100vw - var(--c) * 29) / 2); font-size: 1.0625rem; }
 }
+@media (max-width: 360px) { .star-rest { display: none; } }
 
 /* Hero */
 .hero { padding-block: calc(var(--c) * 3); }
@@ -150,6 +160,7 @@ code { font-family: var(--mono); font-size: 0.92em; }
 }
 .install button:hover { background: var(--green); color: var(--paper); }
 .install button:active { background: var(--ink); color: var(--paper); }
+.install .flag { white-space: nowrap; }
 
 /* Sections */
 .band { padding-block: clamp(4.5rem, 9vw, 7.5rem); border-top: 1px solid var(--ink); }
@@ -184,6 +195,7 @@ code { font-family: var(--mono); font-size: 0.92em; }
 .req .s { grid-column: 2; font-size: 0.9375rem; line-height: 1.4; color: var(--ink-2); }
 .req .s b { color: var(--ink); font-weight: 600; }
 .req .f { font-family: var(--mono); font-size: 0.8125rem; }
+.answer { display: none; }
 
 .sheet {
   position: sticky; top: 5.5rem; max-height: calc(100vh - 7rem); overflow: auto;
@@ -211,7 +223,14 @@ code { font-family: var(--mono); font-size: 0.92em; }
 }
 @media (max-width: 960px) {
   .demo { grid-template-columns: 1fr; }
-  .sheet { top: auto; bottom: 0; max-height: 42vh; padding: 1.25rem; box-shadow: 0 -10px 24px #10131614; }
+  .reqbox { min-height: 0 !important; }
+  .sheet { position: static; max-height: none; overflow: visible; padding: 1.25rem; }
+  .absent.on { display: none; }
+  .req button[aria-pressed='true'] + .answer { display: block; padding: 0 0.5rem 0.875rem 2.25rem; background: var(--green-wash); font-size: 0.9375rem; line-height: 1.45; }
+  .req button[aria-pressed='true']:has(.mark.none) + .answer { background: repeating-linear-gradient(45deg, var(--line) 0 2px, var(--paper) 2px 9px); }
+  .answer p + p { margin-top: 0.5rem; }
+  .answer .from { font-weight: 600; }
+  .answer .none { padding: 0.5rem 0.75rem; font-weight: 600; border: 1px solid var(--ink); background: var(--paper); }
 }
 
 /* Skills */
@@ -260,7 +279,8 @@ code { font-family: var(--mono); font-size: 0.92em; }
 .close .install code { font-size: 0.9375rem; }
 .close a { color: var(--paper); }
 .close a:hover { color: var(--paper); text-decoration-thickness: 2px; }
-.close .more { font-weight: 600; }
+.close .more { font-weight: 400; }
+.close .more a { font-weight: 600; }
 .close :focus-visible { outline-color: var(--paper); }
 
 /* Inner pages */
@@ -296,3 +316,28 @@ tbody th { font-weight: 500; }
 .foot-line { flex-basis: 100%; margin-bottom: 1rem; color: var(--ink); font-size: clamp(2rem, 4.4vw, 3.5rem); font-weight: 600; line-height: 1.05; letter-spacing: -0.035em; }
 .close .lead { color: #c9cdd2; margin-top: 1rem; }
 .close .note { color: #c9cdd2; }
+
+/* Phones. Last, so it overrides the section rules above. */
+@media (max-width: 720px) {
+  .band { padding-block: 3rem; }
+  .band.quiet, .sec { padding-block: 2.5rem; }
+  .hero-copy { gap: 1rem; }
+  .hero-copy h1 { font-size: clamp(2.125rem, 10vw, 2.5rem); }
+  .loss, .steps, .rules, .issues, .skill:first-of-type { margin-top: 1.75rem; }
+  .steps li { display: grid; grid-template-columns: auto 1fr; gap: 0.25rem 0.6rem; align-items: baseline; }
+  .steps li::before { margin-bottom: 0; }
+  .steps h3 { margin-bottom: 0; }
+  .steps p { grid-column: 1 / -1; }
+  .band.grid-field .plate { border: 0; padding-inline: 0; }
+  .change > div { padding: 1rem; }
+  .install { flex-direction: column; }
+  .install code { flex: none; }
+  .install button { height: 2.75rem; border-left: 0; }
+  .req button { scroll-margin-top: 4rem; }
+  .foot { padding-block: 2rem 2.5rem; font-size: 0.875rem; line-height: 1.5; }
+  .foot .wrap { flex-direction: column; gap: 0.5rem; }
+  .foot-line { order: -2; flex-basis: auto; margin-bottom: 0.25rem; font-size: 1.5rem; }
+  .foot-links { order: -1; display: flex; flex-wrap: wrap; gap: 0 1.25rem; margin-bottom: 0.75rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line); font-size: 0.9375rem; }
+  .foot-links a { line-height: 2.75rem; color: var(--ink); }
+  .foot-links .dot { display: none; }
+}

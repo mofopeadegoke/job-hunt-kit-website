@@ -31,7 +31,18 @@ const pageTitle = title ? `${title} | Uncooked` : 'Uncooked: the job market’s 
             <li><a href={n.href} aria-current={path === n.href ? 'page' : undefined}>{n.label}</a></li>
           ))}
         </ul>
-        <a class="star" href={REPO} target="_blank" rel="noopener">Star on GitHub</a>
+        <a class="star" href={REPO} target="_blank" rel="noopener">Star<span class="star-rest"> on GitHub</span></a>
+        <details class="menu">
+          <summary aria-label="Menu">
+            <svg class="icon-open" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" /></svg>
+            <svg class="icon-close" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" /></svg>
+          </summary>
+          <ul>
+            {NAV.map((n) => (
+              <li><a href={n.href} aria-current={path === n.href ? 'page' : undefined}>{n.label}</a></li>
+            ))}
+          </ul>
+        </details>
       </div>
     </nav>
     <main id="main"><slot /></main>
@@ -41,7 +52,7 @@ const pageTitle = title ? `${title} | Uncooked` : 'Uncooked: the job market’s 
         <p>Built by <a href={AUTHOR_URL} target="_blank" rel="noopener">Daniel Adegoke</a>. Free and open source (MIT).</p>
         <p>This site has no analytics and sets no tracking cookies.</p>
         <p>Uncooked doesn’t promise interviews. Those depend on things no one can control.</p>
-        <p><a href={REPO} target="_blank" rel="noopener">GitHub</a> · <a href={`${REPO}/blob/main/plugins/uncooked/PRIVACY.md`} target="_blank" rel="noopener">Privacy policy</a> · <a href={ISSUE_GENERAL}>Send criticism</a></p>
+        <p class="foot-links"><a href={REPO} target="_blank" rel="noopener">GitHub</a><span class="dot"> · </span><a href={`${REPO}/blob/main/plugins/uncooked/PRIVACY.md`} target="_blank" rel="noopener">Privacy policy</a><span class="dot"> · </span><a href={ISSUE_GENERAL}>Send criticism</a></p>
       </div>
     </footer>
     <script>

@@ -227,13 +227,13 @@ A monochrome ink-on-white palette with a single restrained green that signals st
 
 ## Layout
 
-The unit is the cell: the viewport divided into 36 columns (32 at 1100px and below), capped at 44px square. Content sits in a measure of 32 cells on wide screens and 29 at 1100px and below, centred. Grid bands pad by 3 cells. Reading bands pad by clamp(4.5rem, 9vw, 7.5rem), a quieter band by clamp(3.5rem, 7vw, 5.5rem), and inner page sections by clamp(3rem, 6vw, 5rem). At 720px and below the visible grid doubles to 2-cell squares so it stays quiet on a phone.
+The unit is the cell: the viewport divided into 36 columns (32 at 1100px and below), capped at 44px square. Content sits in a measure of 32 cells on wide screens and 29 at 1100px and below, centred. Grid bands pad by 3 cells. Reading bands pad by clamp(4.5rem, 9vw, 7.5rem), a quieter band by clamp(3.5rem, 7vw, 5.5rem), and inner page sections by clamp(3rem, 6vw, 5rem). At 720px and below the visible grid doubles to 2-cell squares so it stays quiet on a phone, reading bands pad by 3rem, quieter bands and inner page sections by 2.5rem, the gap between a heading and its list drops to 1.75rem, and the hero h1 drops to clamp(2.125rem, 10vw, 2.5rem).
 
 The hero divides that measure 17 to 14 with a one-cell gap, which lands both columns on whole cells: real type on a paper ground at left, the bordered evidence plate at right, stretched to equal height. The columns stack at 1100px and below.
 
 Bands stack full width, divided by a 1px ink rule. Lists are ruled rows rather than card grids: an ink rule on top, Grid Line between entries, usually two columns that collapse to one at 860px or 760px. Sequences use three columns gapped by one cell, each opened by an ink rule. Inner pages use a 1fr / 2fr split of heading and prose that collapses at 860px.
 
-The demo pairs a requirement list with a sticky resume sheet, 7fr to 8fr, gapped by one cell. At 960px and below the columns stack and the sheet docks to the bottom of the viewport at 42vh, so a selection and its answer stay visible together.
+The demo pairs a requirement list with a sticky resume sheet, 7fr to 8fr, gapped by one cell. At 960px and below the columns stack, the selected row opens its resume lines directly beneath it so a selection and its answer stay together, and the full resume follows the list as a normal block.
 
 ### Named Rules
 **The Cell Snap Rule.** Sizes on the grid are whole cells. Plates, the requirement box and source notes round their height up to a whole number of cells at runtime, so their edges land on grid lines.
@@ -245,12 +245,11 @@ The demo pairs a requirement list with a sticky resume sheet, 7fr to 8fr, gapped
 The system is flat. Depth comes from paper plates laid over the grid and from 1px ink rules. Nothing lifts on hover.
 
 ### Shadow Vocabulary
-- **Docked sheet** (`box-shadow: 0 -10px 24px #10131614`): The resume sheet when it docks over the page at 960px and below. It separates a surface that truly overlaps moving content.
 - **Control outline** (`box-shadow: inset 0 0 0 1px var(--ink)`): The Copy button's outline, a border in effect.
 - **Highlight bleed** (`box-shadow: 0 0 0 2px var(--green-wash)`): Extends the tint 2px around a highlighted resume line so wrapped text does not touch its edge.
 
 ### Named Rules
-**The Flat Sheet Rule.** A blurred shadow appears only when a surface overlaps scrolling content. Plates at rest have a rule, never a shadow.
+**The Flat Sheet Rule.** A blurred shadow appears only when a surface overlaps scrolling content, and nothing does at present. Plates at rest have a rule, never a shadow.
 
 ## Shapes
 
@@ -266,7 +265,7 @@ Every corner is square (0px). Forms are rectangles and 1px ink outlines. Diagona
 ### Install Command
 Blunt and always within reach. This is the primary action.
 - **Shape:** A square-cornered ink block holding the command in mono, with the Copy button attached to its right edge.
-- **Copy button:** Paper fill, ink text, 600 weight at 0.9375rem, 1px ink outline, 5.25rem minimum width.
+- **Copy button:** Paper fill, ink text, 600 weight at 0.9375rem, 1px ink outline, 5.25rem minimum width. At 720px and below it sits on its own line under the command, full width and 2.75rem tall.
 - **Hover / Active:** Green fill with paper text on hover, ink fill on press, over 0.2s. The label changes to "Copied", or to "Selected" when the clipboard is unavailable, and the change is announced to screen readers.
 - **On ink:** In the closing band the block uses the Command Well color and the command grows to 0.9375rem.
 
@@ -277,6 +276,7 @@ Paper laid on the grid.
 - **Shadow Strategy:** None.
 - **Border:** 1px Ledger Ink.
 - **Internal Padding:** 1.25 cells, reduced to 1.5rem by 1.75rem in page headers.
+- **On phones:** At 720px and below, plates in a grid band keep their paper ground but lose the border and side padding, so boxes never nest and the text keeps its width. Page header plates and the hero's evidence plate stay bordered.
 
 The requirement box follows the same recipe. Hero copy and plain notes on the grid use paper with no border.
 
@@ -289,7 +289,7 @@ The signature. A measured result shown side by side, with its source stated.
 ### Navigation
 - **Style:** A sticky paper bar with a 1px ink base, 4rem minimum height. Wordmark at 700 on the left, page links pushed right, Star on GitHub last at 600.
 - **States:** Links rest in Muted Ink and turn ink with an underline on hover or when current.
-- **Mobile:** At 720px and below the links wrap to a full-width row at 0.875rem.
+- **Mobile:** At 720px and below the bar is one 3.5rem row of wordmark, Star on GitHub and a hamburger icon, which turns into an X and opens the page links in a full-width ruled panel. It is a native `details` element, so it needs no script. Star shortens to "Star" at 360px and below.
 
 ### Links
 - **Style:** Inherit text color, with a 1px underline offset 0.2em. Green on hover. On the ink band they stay paper and the underline thickens to 2px.
@@ -297,7 +297,7 @@ The signature. A measured result shown side by side, with its source stated.
 
 ### Ruled Lists and Steps
 - **Ruled rows:** Title on the left, Muted Ink explanation on the right, an ink rule on top and Grid Line between rows.
-- **Steps:** Three columns, each with an ink top rule, a numeral at 600, a title and a short explanation. The numerals are currently green, which falls outside The One Green Rule, so don't extend that treatment.
+- **Steps:** Three columns, each with an ink top rule, a numeral at 600, a title and a short explanation. At 720px and below the numeral sits on the title's line.
 
 ### Requirement List
 The left half of the demo.
@@ -309,6 +309,7 @@ The left half of the demo.
 A faithful miniature of real output, and it follows a resume's conventions rather than the site's.
 - **Style:** 1px ink outline, paper ground, 0.875rem at 1.45. The name is centred and section headings are small uppercase with an ink rule, as on a resume. Both are confined to this replica.
 - **Highlight:** Lines answering the selection take the Status Tint over 0.25s, and the sheet scrolls to the first one. If no line answers, the striped "Not on this resume" notice appears at the top.
+- **Stacked (960px and below):** The answer opens under the selected row, in Status Tint, or in stripes with the "Not on this resume" notice when nothing answers. Tapping the row again closes it. The full sheet is not pinned or scrolled.
 
 ### Code Blocks and Tables
 - **Code blocks:** Ink ground, paper mono text, wrapping long lines rather than overflowing.
