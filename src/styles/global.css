@@ -295,3 +295,4 @@ tbody th { font-weight: 500; }
 
 .foot-line { flex-basis: 100%; margin-bottom: 1rem; color: var(--ink); font-size: clamp(2rem, 4.4vw, 3.5rem); font-weight: 600; line-height: 1.05; letter-spacing: -0.035em; }
 .close .lead { color: #c9cdd2; margin-top: 1rem; }
+.close .note { color: #c9cdd2; }

@@ -18,7 +18,7 @@ Secondary: job seekers new to Claude Code. They need a clear "New to Claude Code
 
 ## Product Purpose
 
-Uncooked is a Claude Code plugin that helps people get more interviews without exaggerating anything. It tailors a resume (LaTeX, PDF or Word) to a job posting so applicant tracking systems read it correctly and match it to the role, using only facts the user has confirmed. It returns a LaTeX file to compile in Overleaf, says plainly when a job is a long shot, and keeps an application log with follow-ups and honest stats.
+Uncooked is a Claude Code plugin that helps people put their best foot forward in applications without exaggerating anything. It tailors a resume (LaTeX, PDF or Word) to a job posting so applicant tracking systems read it correctly and match it to the role, using only facts the user has confirmed. It returns a LaTeX file to compile in Overleaf, says plainly when a job is a long shot, and keeps an application log with follow-ups and honest stats.
 
 The website succeeds when visitors, in this order: install the plugin, star the GitHub repo, and send criticism as GitHub issues.
 
@@ -39,6 +39,7 @@ Install command: `/plugin install uncooked --marketplace mofopeadegoke/uncooked`
 - Skills: `ats-optimize` and `track`, plus a session-start follow-up reminder.
 - Report statuses: On resume, Reworded, Moved higher, Added from facts, Partial match, Missing.
 - Tested in Claude Code. Cowork and claude.ai chat are expected but not yet tested; never imply otherwise.
+- Never promise or imply interviews. Selection depends on things no one can control; the plugin only helps people put their best foot forward.
 - Needs Python 3 and Claude Code v2.1.275 or later. Poppler recommended. LaTeX engine and LibreOffice optional.
 - The plugin has no server and no analytics. It is free and open source (MIT); show this clearly. Claude Code itself needs a paid Claude plan or Console account, and the site must say so.
 - Pages: Home, See an Example (the Jane Doe demo), Get Started (including "New to Claude Code?"), Honesty Rules, Research & Evals.
