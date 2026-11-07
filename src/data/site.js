@@ -4,10 +4,10 @@ export const WAITLIST = 'https://tally.so/r/Eq5ZMX';
 export const INSTALL = '/plugin install uncooked --marketplace mofopeadegoke/uncooked';
 
 export const NAV = [
-  { href: '/example/', label: 'See an Example' },
-  { href: '/get-started/', label: 'Get Started' },
-  { href: '/honesty-rules/', label: 'Honesty Rules' },
-  { href: '/research-evals/', label: 'Research & Evals' },
+  { href: '/example/', label: 'See an example' },
+  { href: '/get-started/', label: 'Get started' },
+  { href: '/honesty-rules/', label: 'Honesty rules' },
+  { href: '/research-evals/', label: 'Research & evals' },
 ];
 
 const WARNING =

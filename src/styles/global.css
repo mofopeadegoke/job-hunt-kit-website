@@ -11,6 +11,7 @@
   --sans: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
   --mono: 'Geist Mono Variable', ui-monospace, Consolas, monospace;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --on-green: #fff;
   scrollbar-color: var(--ink) var(--line);
 }
 @media (max-width: 1100px) {
@@ -35,7 +36,7 @@ h1, h2, h3 { font-weight: 600; text-wrap: balance; }
 h2 { font-size: clamp(2rem, 4.4vw, 3.5rem); line-height: 1.05; letter-spacing: -0.035em; }
 h3 { font-size: 1.375rem; line-height: 1.25; letter-spacing: -0.02em; }
 a { color: inherit; text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
-a:hover { color: var(--green); }
+a:hover { text-decoration-thickness: 2px; }
 code { font-family: var(--mono); font-size: 0.92em; }
 :focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
 
@@ -79,7 +80,7 @@ code { font-family: var(--mono); font-size: 0.92em; }
 @media (max-width: 720px) {
   .top .wrap { gap: 1rem; min-height: 3.5rem; flex-wrap: nowrap; padding-block: 0; }
   .top .wrap > ul { display: none; }
-  .star { margin-left: auto; }
+  .star { margin-left: auto; line-height: 2.75rem; }
   .menu { display: block; }
   .menu summary { display: flex; align-items: center; justify-content: flex-end; width: 2.75rem; height: 2.75rem; cursor: pointer; list-style: none; }
   .menu summary::-webkit-details-marker { display: none; }
@@ -105,7 +106,7 @@ code { font-family: var(--mono); font-size: 0.92em; }
 .hero-copy h1 { font-size: clamp(2.75rem, 6vw, 5.5rem); line-height: 1; letter-spacing: -0.04em; }
 .hero-copy .lead { color: var(--ink-2); }
 .hero-copy .install { max-width: 38rem; }
-.hero-copy .install code { font-size: 0.75rem; overflow-wrap: normal; text-wrap: balance; }
+.hero-copy .install code { font-size: 0.875rem; overflow-wrap: normal; text-wrap: balance; }
 .star-ask { font-size: 1.0625rem; line-height: 1.4; }
 .star-ask a { font-weight: 600; }
 .seen { background: var(--paper); border: 1px solid var(--ink); padding: var(--c); display: flex; flex-direction: column; justify-content: center; min-width: 0; }
@@ -158,7 +159,7 @@ code { font-family: var(--mono); font-size: 0.92em; }
   background: var(--paper); color: var(--ink); font: 600 0.9375rem var(--sans); padding: 0 0.9rem;
   box-shadow: inset 0 0 0 1px var(--ink); transition: background 0.2s var(--ease), color 0.2s var(--ease);
 }
-.install button:hover { background: var(--green); color: var(--paper); }
+.install button:hover { background: var(--green); color: var(--on-green); }
 .install button:active { background: var(--ink); color: var(--paper); }
 .install .flag { white-space: nowrap; }
 
@@ -268,10 +269,12 @@ code { font-family: var(--mono); font-size: 0.92em; }
 
 /* Criticism */
 .issues { margin-top: 2.5rem; border-top: 1px solid var(--ink); }
-.issues a { display: block; padding-block: 1rem; border-bottom: 1px solid var(--line); text-decoration: none; font-size: clamp(1.25rem, 2.2vw, 1.75rem); font-weight: 600; letter-spacing: -0.02em; transition: padding 0.3s var(--ease); }
-.issues a:hover { padding-left: var(--c); }
+.issues a { display: block; padding-block: 1rem; border-bottom: 1px solid var(--line); text-decoration: none; font-size: clamp(1.25rem, 2.2vw, 1.75rem); font-weight: 600; letter-spacing: -0.02em; transition: transform 0.3s var(--ease); }
+.issues a:hover { transform: translateX(var(--c)); color: inherit; }
 .cta { display: inline-flex; align-items: center; min-height: 2.75rem; margin-top: 2rem; padding: 0.7rem 1.4rem; background: var(--ink); color: var(--paper); font-weight: 600; text-decoration: none; transition: background 0.2s var(--ease); }
-.cta:hover { background: var(--green); color: var(--paper); }
+.cta:hover { background: var(--green); color: var(--on-green); }
+.close .cta { background: #fff; color: #101316; }
+.close .cta:hover { background: var(--green); color: var(--on-green); text-decoration: none; }
 .warn { margin-top: 1.25rem; color: var(--ink-2); max-width: 42rem; }
 
 /* Close */
@@ -342,4 +345,33 @@ tbody th { font-weight: 500; }
   .foot-links { order: -1; display: flex; flex-wrap: wrap; gap: 0 1.25rem; margin-bottom: 0.75rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line); font-size: 0.9375rem; }
   .foot-links a { line-height: 2.75rem; color: var(--ink); }
   .foot-links .dot { display: none; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+  .issues a:hover { transform: none; }
+}
+
+/* Dark appearance. Follows the system setting; no site toggle. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --ink: #eceef0;
+    --ink-2: #a9afb6;
+    --line: #2a2f34;
+    --paper: #101316;
+    --wash: #1a1e22;
+    --green: #5cbf97;
+    --green-wash: #15332a;
+    --on-green: #101316;
+  }
+  /* Dark blocks stay dark: swap the two tokens inside them. */
+  .install, pre, .skip { --ink: #262b30; --paper: #f2f3f4; }
+  .cta { --ink: #f2f3f4; --paper: #101316; }
+  .close { --ink: #1a1e22; --paper: #f2f3f4; }
+  .close .install { background: #ffffff14; }
+  .close .install button { background: #f2f3f4; color: #101316; box-shadow: none; }
+  .close .install button:hover { background: var(--green); color: var(--on-green); }
+  .bar.plain .fill { background: #8a9097; }
 }
