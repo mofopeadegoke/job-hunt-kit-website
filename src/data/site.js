@@ -1,5 +1,6 @@
 export const REPO = 'https://github.com/mofopeadegoke/uncooked';
 export const AUTHOR_URL = 'https://github.com/mofopeadegoke';
+export const WAITLIST = 'https://tally.so/r/Eq5ZMX';
 export const INSTALL = '/plugin install uncooked --marketplace mofopeadegoke/uncooked';
 
 export const NAV = [

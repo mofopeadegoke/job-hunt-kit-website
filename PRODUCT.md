@@ -38,7 +38,8 @@ Install command: `/plugin install uncooked --marketplace mofopeadegoke/uncooked`
 
 - Skills: `ats-optimize` and `track`, plus a session-start follow-up reminder.
 - Report statuses: On resume, Reworded, Moved higher, Added from facts, Partial match, Missing.
-- Tested in Claude Code. Cowork and claude.ai chat are expected but not yet tested; never imply otherwise.
+- Tested in Claude Code, claude.ai chat and the Gemini web app (neither chat keeps a lasting folder for the log). Cowork is expected but not yet tested; never imply otherwise. The session-start reminder is tested only in Claude Code on Windows.
+- A fuller web app is coming. The home page links to its waitlist (a Tally form at https://tally.so/r/Eq5ZMX); never imply the web app is live.
 - Never promise or imply interviews. Selection depends on things no one can control; the plugin only helps people put their best foot forward.
 - Needs Python 3 and Claude Code v2.1.275 or later. Poppler recommended. LaTeX engine and LibreOffice optional.
 - The plugin has no server and no analytics. It is free and open source (MIT); show this clearly. Claude Code itself needs a paid Claude plan or Console account, and the site must say so.
